@@ -18,7 +18,7 @@ public class Order {
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "test_order_product",
             joinColumns = @JoinColumn(name = "order_id"),

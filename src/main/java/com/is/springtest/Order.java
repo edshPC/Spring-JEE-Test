@@ -26,5 +26,4 @@ public class Order {
     )
     private List<Product> products;
 
-    // Getters and Setters
 }

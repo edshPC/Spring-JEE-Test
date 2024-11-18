@@ -11,5 +11,5 @@ import java.util.List;
 public interface OrderRepository extends BasicRepository<Order, Long> {
     @Find
     @OrderBy(value = "date", descending = true)
-    List<Order> findTopByUserOrderByDateDesc(User user);
+    List<Order> findTopByUser(User user);
 }

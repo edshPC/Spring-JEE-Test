@@ -17,7 +17,7 @@ public class OrderService {
     public Order getLastOrderByUser(String username) {
         Optional<User> user = userRepository.findByUsername(username);
         if (!user.isPresent()) return null;
-        List<Order> orders = orderRepository.findTopByUserOrderByDateDesc(user.get());
+        List<Order> orders = orderRepository.findTopByUser(user.get());
         if (orders.isEmpty()) return null;
         return orders.get(0);
     }

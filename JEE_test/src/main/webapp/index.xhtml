@@ -6,17 +6,20 @@
 </h:head>
 <h:body>
     <h:form>
-        <h:outputLabel for="username" value="Username:" />
+        <h:outputLabel for="username" value="Имя: " />
         <h:inputText id="username" value="#{userBean.username}" />
-        <h:commandButton value="Find User" action="#{userBean.getLastOrder}" />
+        <h:commandButton value="Найти" action="#{userBean.getLastOrder}" />
 
         <h:panelGroup rendered="#{not empty userBean.order}">
-            <h:outputText value="Order found: #{userBean.order.date} #{userBean.order.id}" />
+            <h:outputText value="Последний заказ: #{userBean.order.date} #{userBean.order.id}" />
             <ul>
                 <ui:repeat value="#{userBean.order.products}" var="product">
                     <li>#{product.name} - #{product.price} руб.</li>
                 </ui:repeat>
             </ul>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{empty userBean.order}">
+            <p>Заказы не найдены</p>
         </h:panelGroup>
     </h:form>
 </h:body>

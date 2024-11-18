@@ -14,7 +14,7 @@ public class Repository {
     private EntityManager entityManager;
 
     // Метод для получения последнего заказа пользователя
-    @Transactional
+    @Transactional()
     public Order findLastOrder(User user) {
         TypedQuery<Order> query = entityManager.createQuery(
                 "SELECT o FROM Order o WHERE o.user = :user ORDER BY o.date DESC", Order.class);

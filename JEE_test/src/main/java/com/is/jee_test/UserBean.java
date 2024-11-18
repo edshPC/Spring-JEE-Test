@@ -11,15 +11,13 @@ import lombok.Data;
 public class UserBean {
 
     @Inject
-    private Repository repository;
+    private OrderService orderService;
 
     private String username;
-    private User user;
     private Order order;
 
     public void getLastOrder() {
-        user = repository.findUser(username);
-        order = repository.findLastOrder(user);
+        order = orderService.getLastOrderByUser(username);
     }
 
 }

@@ -4,10 +4,10 @@ import jakarta.data.repository.BasicRepository;
 import jakarta.data.repository.Find;
 import jakarta.data.repository.Repository;
 
-import java.util.Optional;
+import java.util.List;
 
 @Repository
 public interface OrderRepository extends BasicRepository<Order, Long> {
     @Find
-    Optional<Order> findTopByUserOrderByDateDesc(User user);
+    List<Order> findTopByUserOrderByDateDesc(User user);
 }

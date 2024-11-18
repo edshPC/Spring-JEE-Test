@@ -3,6 +3,7 @@ package com.is.jee_test;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -16,7 +17,9 @@ public class OrderService {
     public Order getLastOrderByUser(String username) {
         Optional<User> user = userRepository.findByUsername(username);
         if (!user.isPresent()) return null;
-            return orderRepository.findTopByUserOrderByDateDesc(user.get()).orElse(null);
+        List<Order> orders = orderRepository.findTopByUserOrderByDateDesc(user.get());
+        if (orders.isEmpty()) return null;
+        return orders.get(0);
     }
 
 }

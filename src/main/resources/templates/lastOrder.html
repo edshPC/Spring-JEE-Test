@@ -8,7 +8,6 @@
 <div th:if="${lastOrder != null}">
     <p>Заказ ID: <span th:text="${lastOrder.id}"></span></p>
     <p>Дата: <span th:text="${lastOrder.date}"></span></p>
-    <p>Статус: <span th:text="${lastOrder.status}"></span></p>
     <h2>Товары в заказе:</h2>
     <ul>
         <li th:each="product : ${lastOrder.products}">

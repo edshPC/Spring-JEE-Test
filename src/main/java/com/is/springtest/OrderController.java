@@ -25,13 +25,12 @@ public class OrderController {
     @GetMapping("/last-order")
     public String getLastOrder(@RequestParam String username, Model model) {
         Order lastOrder = orderService.getLastOrderByUser(username);
-        model.addAttribute("lastOrder", lastOrder);
+        model.addAttribute("lastOrder", lastOrder); // MVC объект
         return "lastOrder"; // имя представления
     }
 
     int user_id = 0;
-
-    @GetMapping("/new")
+    @GetMapping("/new") //не нужно в рубежке, сделано для теста
     public String getLastOrder(@RequestParam String username) {
         User user = userRepository.findByUsername(username);
         if (user == null) user = new User();

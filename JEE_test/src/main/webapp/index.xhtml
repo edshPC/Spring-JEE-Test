@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
     <title>User Search</title>
 </h:head>
@@ -12,6 +12,11 @@
 
         <h:panelGroup rendered="#{not empty userBean.order}">
             <h:outputText value="Order found: #{userBean.order.date} #{userBean.order.id}" />
+            <ul>
+                <ui:repeat value="#{userBean.order.products}" var="product">
+                    <li>#{product.name} - #{product.price} руб.</li>
+                </ui:repeat>
+            </ul>
         </h:panelGroup>
     </h:form>
 </h:body>

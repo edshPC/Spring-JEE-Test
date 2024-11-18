@@ -14,7 +14,6 @@ public class Order {
     private Long id;
 
     private LocalDateTime date;
-    private String status;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
